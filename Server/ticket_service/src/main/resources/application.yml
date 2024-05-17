@@ -1,0 +1,106 @@
+server:
+  port: 2424
+
+spring:
+  application:
+    name: TICKET-SERVICE
+
+    basicActions: C:\Users\dell\EMTECH\TICKETING\EMT_TICKETING_SYSTEM\Server\ticket_service\src\main\resources\basicactions.json
+
+
+    logs:
+      user: C:\Users\dell\EMTECH\TICKETING\EMT_TICKETING_SYSTEM\Server\ticket_service\src\main\resources\user.log
+
+    enableEmail: true
+
+    client:
+      origin_local: http://localhost:4200/
+      origin_52: http://52.15.152.26:4200/
+
+    useOTP: false
+    otpProd: false
+    otpTestMail: pmanyi@emtechhouse.co.ke
+
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+      use-new-id-generator-mappings: false
+    properties:
+      hibernate:
+#        dialect: org.hibernate.dialect.MariaDB53Dialect
+  datasource:
+
+
+    url: jdbc:mariadb://localhost:3306/tickets
+    username: root
+    password:
+
+    driverClassName: org.mariadb.jdbc.Driver
+
+  #EMAIL CONFIGURATIONS
+  mail:
+    protocol: smtps
+    host: mail.emtechhouse.co.ke
+    port: 465
+    username: no-reply@emtechhouse.co.ke
+    password: Pass123$$
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: false
+          ssl:
+            trust: mail.emtechhouse.co.ke
+
+  organisation:
+    emailRegards: Regards Goodways Sacco Society Limited
+    emailMessage: Find the attached information from our partnership
+    emailOrganizationName: Good ways Sacco Society Limited
+
+    image_banner: C:\Users\hp\Documents\e_m\currentProject\EMT_REPORTING_SYSTEM\Server\ticket_service\src\main\resources\logo.png
+
+    emailRemarks: Thank You.
+    emailOrganizationLocation: Kerugoya Kirinyaga, Kenya.
+    emailOrganizationPhone: +254 7** *** ***
+    emailOrganizationWebsite: https://goodwayssacco.co.ke
+    emailOrganizationMail: goodwayssacco@gmail.com
+    emailOrganizationAddress: P.O Box 44, 10300 Kerugoya
+    from_mail: no-reply@emtechhouse.co.ke
+
+    company_logo_path: C:\Users\dell\EMTECH\TICKETING\EMT_TICKETING_SYSTEM\Server\ticket_service\src\main\resources\logo.png
+
+    emailSalutation: Dear Sir/Madam,
+
+organisation:
+
+  #  Super User Details
+  superUserEmail: no-reply@emtechhouse.co.ke
+  superUserFirstName: Superuser
+  superUserLastName: Admin
+  superUserUserName: Superuser
+  superUserPhone: 0701432240
+  superUserSolCode: 000
+  superUserPassword: SuPassCode12
+  maxNoOfTellers: 20
+
+eureka:
+  client:
+    enabled: false
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      defaultZone: http://localhost:9001/eureka
+
+  instance:
+    hostname: localhost
+
+users:
+  app:
+    jwtSecret: /buCOEjS/+H7ZwekxyLKLdDeegHUGEytjxuivosdrzjRG4g4E+kA3uXO5lvGBVsl2NwqsgiGUUI5bjgY/6WG/VSIIG+22b1Rvdb59BY0YRod6Dnjnp0REsPn//hshs6ucnOVCBRp0lbVb1kP+EDOM7W7N72/+t+R1d8JQ4pjisoJZI4e0MV3PlZtzXKI0SY2EQUtI
+    jwtExpirationMs: 43200000
+
