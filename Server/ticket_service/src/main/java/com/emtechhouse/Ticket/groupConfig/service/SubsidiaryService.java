@@ -1,5 +1,6 @@
 package com.emtechhouse.Ticket.groupConfig.service;
 
+import com.emtechhouse.Ticket.TicketAssignee.TicketAssigneeModel.TicketAssignee;
 import com.emtechhouse.Ticket.Utils.EntityResponse;
 import com.emtechhouse.Ticket.groupConfig.model.Subsidiary;
 import com.emtechhouse.Ticket.groupConfig.repo.SubsidiaryRepo;
@@ -19,30 +20,12 @@ public class SubsidiaryService {
      SubsidiaryRepo subsidiaryRepo;
 
 
-    public SubsidiaryService(SubsidiaryRepo subsidiaryRepo) {
-        this.subsidiaryRepo = subsidiaryRepo;
-    }
-
-    public EntityResponse<Subsidiary> create(Subsidiary subsidiary) {
-        EntityResponse<Subsidiary> response =new EntityResponse<>();
-        try{
-            Optional<Subsidiary> checkSubsidiary = subsidiaryRepo.findByCompanyName(subsidiary.getCompanyName());
-            if (checkSubsidiary.isPresent()){
-                response.setStatusCode(HttpStatus.NOT_ACCEPTABLE.value());
-                response.setMessage("Subsidiary with name " + subsidiary.getCompanyName() +"already exists");
-
-            }else {
-                Subsidiary saved = subsidiaryRepo.save(subsidiary);
-                response.setMessage("Created successfully");
-                response.setStatusCode(HttpStatus.CREATED.value());
-                response.setEntity(saved);
-
-                subsidiaryRepo.save(saved);
-            }
-
-        }catch (Exception e){
-            log.error("Error{}" +e);
+    public Subsidiary addSubsiiary(Subsidiary newSubsidiary) {
+        try {
+            return subsidiaryRepo.save(newSubsidiary);
+        } catch (Exception e) {
+            log.info("Catched Error {} " + e);
+            return null;
         }
-        return response;
-
-}}
+    }
+}
