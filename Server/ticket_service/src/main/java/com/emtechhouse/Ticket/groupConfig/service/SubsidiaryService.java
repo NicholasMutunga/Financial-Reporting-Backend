@@ -20,9 +20,17 @@ public class SubsidiaryService {
      SubsidiaryRepo subsidiaryRepo;
 
 
-    public Subsidiary addSubsiiary(Subsidiary newSubsidiary) {
+    public Subsidiary addSubsidiary(Subsidiary newSubsidiary) {
         try {
             return subsidiaryRepo.save(newSubsidiary);
+        } catch (Exception e) {
+            log.info("Catched Error {} " + e);
+            return null;
+        }
+    }
+    public Subsidiary updateSubsidiary(Subsidiary subsidiary) {
+        try {
+            return subsidiaryRepo.save(subsidiary);
         } catch (Exception e) {
             log.info("Catched Error {} " + e);
             return null;

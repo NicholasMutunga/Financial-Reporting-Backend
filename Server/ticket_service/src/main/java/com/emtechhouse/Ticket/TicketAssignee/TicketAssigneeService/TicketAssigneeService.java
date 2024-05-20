@@ -19,7 +19,7 @@ public class TicketAssigneeService {
         try {
             return ticketAssigneeRepository.save(ticketAssignee);
         } catch (Exception e) {
-            log.info("Catched Error {} " + e);
+            log.info(" Error {} " + e);
             return null;
         }
     }
