@@ -104,3 +104,6 @@ users:
     jwtSecret: /buCOEjS/+H7ZwekxyLKLdDeegHUGEytjxuivosdrzjRG4g4E+kA3uXO5lvGBVsl2NwqsgiGUUI5bjgY/6WG/VSIIG+22b1Rvdb59BY0YRod6Dnjnp0REsPn//hshs6ucnOVCBRp0lbVb1kP+EDOM7W7N72/+t+R1d8JQ4pjisoJZI4e0MV3PlZtzXKI0SY2EQUtI
     jwtExpirationMs: 43200000
 
+  implementation: 'org.apache.poi:poi-ooxml:5.2.3'
+
+
