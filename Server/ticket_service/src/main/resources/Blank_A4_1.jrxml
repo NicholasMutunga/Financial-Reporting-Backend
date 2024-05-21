@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.21.2.final using JasperReports Library version 6.21.2-8434a0bd7c3bbc37cbf916f2968d35e4b165821a  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi	="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_A4_1" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="102b8283-7d25-4cc7-9968-9b307e6d1d6b">
+    <property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+    <property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter"/>
+    <queryString language="SQL">
+        <![CDATA[select * from trial where PL_or_BS  = 'Balance Sheet';]]>
+    </queryString>
+    <field name="Account" class="java.lang.Integer">
+        <property name="com.jaspersoft.studio.field.name" value="Account"/>
+        <property name="com.jaspersoft.studio.field.label" value="Account"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="trial"/>
+    </field>
+    <field name="Account_Description" class="java.lang.String">
+        <property name="com.jaspersoft.studio.field.name" value="Account_Description"/>
+        <property name="com.jaspersoft.studio.field.label" value="Account_Description"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="trial"/>
+    </field>
+    <field name="PL_or_BS" class="java.lang.String">
+        <property name="com.jaspersoft.studio.field.name" value="PL_or_BS"/>
+        <property name="com.jaspersoft.studio.field.label" value="PL_or_BS"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="trial"/>
+    </field>
+    <field name="Sub_Category" class="java.lang.String">
+        <property name="com.jaspersoft.studio.field.name" value="Sub_Category"/>
+        <property name="com.jaspersoft.studio.field.label" value="Sub_Category"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="trial"/>
+    </field>
+    <field name="Net" class="java.math.BigDecimal">
+        <property name="com.jaspersoft.studio.field.name" value="Net"/>
+        <property name="com.jaspersoft.studio.field.label" value="Net"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="trial"/>
+    </field>
+    <variable name="Account_Description1" class="java.lang.Integer" resetType="Column" calculation="Count">
+        <variableExpression><![CDATA[$F{Account_Description}]]></variableExpression>
+    </variable>
+    <variable name="Sub_Category1" class="java.lang.Integer" resetType="Column" calculation="DistinctCount">
+        <variableExpression><![CDATA[$F{Sub_Category}]]></variableExpression>
+    </variable>
+    <variable name="Net1" class="java.math.BigDecimal" resetType="Column" calculation="Sum">
+        <variableExpression><![CDATA[$F{Net}]]></variableExpression>
+    </variable>
+    <group name="Account">
+        <groupExpression><![CDATA[$F{Account}]]></groupExpression>
+    </group>
+    <group name="Account_Description">
+        <groupExpression><![CDATA[$F{Account_Description}]]></groupExpression>
+    </group>
+    <group name="PL_or_BS">
+        <groupExpression><![CDATA[$F{PL_or_BS}]]></groupExpression>
+    </group>
+    <group name="Sub_Category">
+        <groupExpression><![CDATA[$F{Sub_Category}]]></groupExpression>
+    </group>
+    <group name="Net">
+        <groupExpression><![CDATA[$F{Net}]]></groupExpression>
+    </group>
+    <background>
+        <band splitType="Stretch"/>
+    </background>
+    <pageHeader>
+        <band height="126" splitType="Stretch">
+            <image>
+                <reportElement x="490" y="2" width="50" height="50" uuid="33944390-07cc-4f0e-b22a-e7e8c946c2f2"/>
+                <imageExpression><![CDATA["D:/Work/Financial-Reporting-Backend/Server/ticket_service/src/main/resources/absa_logo.jpg"]]></imageExpression>
+            </image>
+            <staticText>
+                <reportElement x="10" y="10" width="400" height="30" uuid="7fbb465b-8db8-4c61-a5cd-3bf4df78c6fe"/>
+                <textElement textAlignment="Left">
+                    <font fontName="Sitka Text" size="16" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Consolidated statement of financial position]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="10" y="60" width="50" height="20" uuid="d49a6ce1-62ae-402e-9fce-d35a09edf91e"/>
+                <text><![CDATA[as at ]]></text>
+            </staticText>
+            <textField pattern="MMMMM dd, yyyy">
+                <reportElement x="60" y="60" width="100" height="30" uuid="4c34d5ac-7b19-4ed5-a075-a519165d648b"/>
+                <textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+            </textField>
+        </band>
+    </pageHeader>
+    <columnHeader>
+        <band height="35" splitType="Stretch">
+            <staticText>
+                <reportElement mode="Opaque" x="0" y="0" width="180" height="30" forecolor="#FFFFFF" backcolor="#AF144B" uuid="6747d7b7-bdfe-4ce5-9989-c3256909119a"/>
+                <textElement textAlignment="Center"/>
+                <text><![CDATA[Account_Description]]></text>
+            </staticText>
+            <staticText>
+                <reportElement mode="Opaque" x="179" y="0" width="188" height="30" forecolor="#FFFFFF" backcolor="#AF144B" uuid="22603d36-0765-4da6-851d-49bbea2d49bf"/>
+                <textElement textAlignment="Center"/>
+                <text><![CDATA[Sub_Category]]></text>
+            </staticText>
+            <staticText>
+                <reportElement mode="Opaque" x="367" y="0" width="102" height="30" forecolor="#FFFFFF" backcolor="#AF144B" uuid="796b9f80-8b38-4c1a-a0ff-c7ed4acf57d3"/>
+                <textElement textAlignment="Center"/>
+                <text><![CDATA[Net]]></text>
+            </staticText>
+        </band>
+    </columnHeader>
+    <detail>
+        <band height="33" splitType="Stretch">
+            <textField>
+                <reportElement x="220" y="0" width="100" height="30" uuid="39e5fdec-00ff-4a65-9232-c685457dcfc2">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c8c358cd-266d-408b-9c58-aab31ea9255b"/>
+                </reportElement>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[$F{Sub_Category}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="360" y="0" width="109" height="30" uuid="52e74d7c-6399-47d9-9910-1b6fa3227eca"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[$V{Net1}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="0" y="0" width="100" height="30" uuid="dd2d957d-c3fe-4014-81ab-637c55d899ae">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="3fec4cc1-fa3d-41b5-bff6-9c364402b915"/>
+                </reportElement>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[$F{Account_Description}]]></textFieldExpression>
+            </textField>
+        </band>
+    </detail>
+    <columnFooter>
+        <band height="45" splitType="Stretch"/>
+    </columnFooter>
+    <pageFooter>
+        <band height="100" splitType="Stretch">
+            <frame>
+                <reportElement x="90" y="26" width="310" height="70" uuid="d1ff47a2-ca15-43f5-9ae4-6108df279839"/>
+                <staticText>
+                    <reportElement mode="Transparent" x="100" y="7" width="120" height="30" forecolor="#030000" backcolor="#AF144B" uuid="c052b9b3-b676-442d-8e7a-bdebcca7eab0"/>
+                    <text><![CDATA[***** Financial Report *****]]></text>
+                </staticText>
+            </frame>
+            <textField>
+                <reportElement x="470" y="66" width="100" height="30" uuid="5dd49289-7652-49a2-9b3f-f14506612384"/>
+                <textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+            </textField>
+        </band>
+    </pageFooter>
+    <summary>
+        <band height="42" splitType="Stretch"/>
+    </summary>
+</jasperReport>

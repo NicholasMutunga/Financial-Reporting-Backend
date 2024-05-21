@@ -31,7 +31,8 @@ dependencies {
 	implementation 'com.auth0:java-jwt:3.18.1'
 	implementation 'io.jsonwebtoken:jjwt-api:0.11.2'
 	implementation 'org.passay:passay:1.6.0'
-
+	implementation 'net.sf.jasperreports:jasperreports:6.17.0'
+	implementation 'com.lowagie:itext:2.1.7' // Adjusted dependency without .js8 suffix
 
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
@@ -44,16 +45,12 @@ dependencies {
 	runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	// https://mvnrepository.com/artifact/org.json/json
 	implementation group: 'org.json', name: 'json', version: '20220924'
-	// https://mvnrepository.com/artifact/org.springframework/spring-webflux
 	implementation group: 'org.springframework', name: 'spring-webflux', version: '5.3.23'
-// https://mvnrepository.com/artifact/com.squareup.okhttp3/okhttp
 	implementation group: 'com.squareup.okhttp3', name: 'okhttp', version: '4.10.0'
 	runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.11.2',
-			// Uncomment the next line if you want to use RSASSA-PSS (PS256, PS384, PS512) algorithms:
 			'org.bouncycastle:bcprov-jdk15on:1.60',
-			'io.jsonwebtoken:jjwt-jackson:0.11.2' // or 'io.jsonwebtoken:jjwt-gson:0.11.2' for gson
+			'io.jsonwebtoken:jjwt-jackson:0.11.2'
 	implementation 'org.springframework.boot:spring-boot-starter-mail:2.5.3'
 }
 
@@ -66,3 +63,4 @@ dependencyManagement {
 test {
 	useJUnitPlatform()
 }
+
